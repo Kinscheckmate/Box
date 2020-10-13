@@ -40,7 +40,7 @@ public class Frog {
 		yPos = yPos + 1;
 	}
 
-	public void jump(int jumps)//TODO jump method move up and to the right
+	public void jump(int jumps)// jump method move up and to the right
 	{
 		xPos += jumps;
 		yPos += jumps;
@@ -48,8 +48,9 @@ public class Frog {
 	//This method should take an integer argument.  This argument controls how many spaces
 	// the frog will move both up and right.  Returns no value.
 
-	public Frog visit(Frog other) {//TODO visit method moves frog to the location of the friend frog
-
+	public void visit(Frog other) {// visit method moves frog to the location of the friend frog
+		xPos = other.xPos;
+		yPos = other.yPos;
 	}
 	// This method will take an argument of type Frog.  It will find the position of the
 	// frog and move to this position.  Returns no value.
@@ -66,7 +67,6 @@ public class Frog {
 	
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Frog f1 = new Frog("Freddy",3,4);	// create an instance of Frog
 		f1.eatFly();						// call Frog methods
 		f1.moveNorth();
@@ -74,14 +74,15 @@ public class Frog {
 		
 		Frog f2 = new Frog("Francine", -2,0);
 		f2.eatFly();
-		// TODO uncomment these to test new code.
-		//f2.jump(2);
-		//f1.visit(f2);
+		f2.jump(2);
+		f1.visit(f2);
 		System.out.println(f1);
 		System.out.println(f2);
 		
-		// make a new frog named Frank.  have him jump twice and then go visit Freddy.
-
+		Frog f3 = new Frog ("Frank",0,0); // make a new frog named Frank.have him jump twice and then go visit Freddy.
+		f3.jump(2);
+		f3.visit(f1);
+		System.out.println(f3);
 	}
 
 }
